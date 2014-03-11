@@ -1,0 +1,67 @@
+Assign3: Due 11:59PM April 12th
+
+The Fibonacci series of numbers start with 1, 1, 2, 3, 5, 8, 13, 21, ...
+where values at position 0 and 1 are 1, and values at each position after
+that are a sum of previous two positions.
+
+Using test driven development, write three implementations of a function
+to compute the Fibonacci number at a given position.
+
+Start with one implementation at a time rather than rushing through all
+of them at the same time.
+
+The three implementations are described below:
+
+1. A simple iteration. 
+  Given a position n, loop through totaling values until you reach the value for the given position.
+
+2. A simple recursion.
+  Given a position, compute the value at a position using the expression fib(n-1) + fib(n-2).
+
+3. A memoized recursion.
+  Given a position, look up to see if the value has been precomputed and if so return that value. Otherwise, use recursion to compute the value.
+  
+Write a test that confirms that the memoized version is faster than the 
+recursive version.
+
+Reuse as much code as possible.
+
+After you're done with the code, answer the following:
+
+What design principles did you use in the program?
+	The design principles that we used are: DIP, SRP, DRY, LSP, and OCP.
+	Each class just does one thing, so they have a single responsibility (SRP).  They are independent from others (DIP).  Although the test cases for 3 types of Fibonacci are similar, we didn't duplicate the code through using a base class, FibonacciBaseTest, that handles all test cases.  Each class test inherits from this base class, so it would not be violated DRY principle.  We call test cases through the derived classes, such as IterativeFibonacciTest, RecursiveFibonacciTest, and MemoizedFibonacciTest; not from base class, FibonacciBaseTest.  Therefore, we also follow the LSP.  Besides, if we extend more classes for test cases or objects about Fibonacci, we would not modify the base class. The OCP is satisfied.
+
+What design patterns did you use in the program?
+
+	The design pattern is Factory Pattern.  We used it to make the classes of test case.  We have one base class, FibonacciBaseTest and 3 derived classes, such as IterativeFibonacciTest, RecursiveFibonacciTest, and MemoizedFibonacciTest.  The 3 classes inherit from the base class.  This is the diagram for factory pattern in our work:
+
+				
+
+IterativeFibonacciTest---------------------
+								|
+								|
+								v
+RecursiveFibonacciTest------------------> FibonacciBaseTest
+								^
+								|
+								|
+MemoizedFibonacciTest----------------------
+
+
+Total [100]: 100
+
+All tests pass [20]:
+
+Coverage [10]:
+
+Tests are DRY [20]:
+
+Code is DRY [20]:
+
+Code/design quality [10]:
+
+Principles [10]:
+
+Patterns [10]:
+
